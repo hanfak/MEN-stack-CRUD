@@ -1,6 +1,7 @@
 var express = require("express");
 // var exampleText = require("./exampleText.js");
-var hbs =require("express-handlebars");
+var hbs = require("express-handlebars");
+var db  = require("./db/connection");
 
 var app = express();
 
@@ -19,7 +20,7 @@ app.get("/", function(req, res){
 
 app.get("/players", function(req, res){
   res.render("players-index", {
-    numCandidates: 5
+     players: db.players,
   });
 });
 
