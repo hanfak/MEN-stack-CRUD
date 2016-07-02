@@ -17,6 +17,12 @@ app.get("/", function(req, res){
   res.render("app-welcome");
 });
 
+app.get("/players", function(req, res){
+  res.render("players-index", {
+    numCandidates: 5
+  });
+});
+
 app.listen(3001, function(){
   console.log('server is working');
 });
