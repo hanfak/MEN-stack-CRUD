@@ -4,6 +4,7 @@ var hbs =require("express-handlebars");
 
 var app = express();
 
+app.use("/assets", express.static("public"));
 app.set("view engine", "hbs");
 app.engine(".hbs", hbs({
   extname:        ".hbs",
