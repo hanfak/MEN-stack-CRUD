@@ -1,9 +1,10 @@
 var express = require("express");
+var exampleText = require("./exampleText.js");
 
 var app = express();
 
 app.get("/", function(req, res){
-  res.send("Hello World!");
+  res.send(exampleText);
 });
 
 app.listen(3001, function(){
