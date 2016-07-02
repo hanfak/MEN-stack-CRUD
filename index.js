@@ -2,6 +2,10 @@ var express = require("express");
 // var exampleText = require("./exampleText.js");
 var hbs = require("express-handlebars");
 var db  = require("./db/connection");
+var helpers = require('handlebars-helpers');
+
+
+var comparison = helpers.comparison();
 
 var app = express();
 

@@ -1,1 +1,12 @@
 <h2>{{players.length}} players</h2>
+
+{{#each players as |player index|}}
+<h3>
+  <a href="/players/{{player.name}}">{{player.name}}</a> has {{player.goals}}
+  {{#eq player.goals 1}}
+    goal
+  {{else}}
+    goals
+  {{/eq}}
+</h3>
+{{/each}}
