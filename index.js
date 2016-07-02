@@ -28,6 +28,16 @@ app.get("/players", function(req, res){
   });
 });
 
+app.get("/players/:name", function(req, res){
+  var data = {
+    name: req.params.name,
+    goals: 10
+  };
+  res.render("players-show", {
+    player: data
+  });
+});
+
 app.listen(3001, function(){
   console.log('server is working');
 });
