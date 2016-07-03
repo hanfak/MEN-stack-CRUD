@@ -1,6 +1,6 @@
 MongoDB, ExpressJS and NodeJS (MEN stack) CRUD app
 
-To build an app similar to sinatra, with RESTful api. Learn a how to implement testing, using mocha and chai.
+To build an app similar to sinatra in javascript, with RESTful api. Learn a how to implement testing, using mocha and chai.
 
 ## Instructions
 
@@ -17,6 +17,8 @@ To run tests:
 
 ```npm test```
 
-To view app:
+To view app in browser:
 
-```localhost:3001/```
+```
+http://localhost:3001
+```
