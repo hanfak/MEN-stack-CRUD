@@ -24,9 +24,6 @@ app.get("/", function(req, res){
 });
 
 app.get("/players", function(req, res){
-  // res.render("players-index", {
-  //    players: db.players,
-  // });
   Player.find({}).then(function(playersFromDb){
     res.render("players-index", {
       players: playersFromDb
@@ -35,15 +32,20 @@ app.get("/players", function(req, res){
 });
 
 app.get("/players/:name", function(req, res){
-  var desiredName = req.params.name;
-  var playerOutput;
-  db.players.forEach(function(player){
-    if(desiredName === player.name){
-      playerOutput = player;
-    }
-  });
-  res.render("players-show", {
-    player: playerOutput
+  // var desiredName = req.params.name;
+  // var playerOutput;
+  // db.players.forEach(function(player){
+  //   if(desiredName === player.name){
+  //     playerOutput = player;
+  //   }
+  // });
+  // res.render("players-show", {
+  //   player: playerOutput
+  // });
+  Player.findOne({name: req.params.name}).then(function(playerFromDb){
+    res.render("players-show", {
+      player: playerFromDb
+    });
   });
 });
 
