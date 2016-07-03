@@ -1,10 +1,14 @@
-<h2>
-  {{player.name}} has scored {{player.goals}}
-  {{#eq player.goals 1}}
-    goal
-  {{else}}
-    goals
-  {{/eq}}
-</h2>
+{{#if candidate}}
+  <h2>
+    {{player.name}} has scored {{player.goals}}
+    {{#eq player.goals 1}}
+      goal
+    {{else}}
+      goals
+    {{/eq}}
+  </h2>
 
-{{player.id}}
+  {{player.id}}
+{{else}}
+<h2>That player couldn't be found!</h2>
+{{/if}}
