@@ -31,7 +31,7 @@ app.get("/players", function(req, res){
   });
 });
 
-app.get("/players/:name", function(req, res){
+app.get("/players/:id", function(req, res){
   // var desiredName = req.params.name;
   // var playerOutput;
   // db.players.forEach(function(player){
@@ -42,7 +42,7 @@ app.get("/players/:name", function(req, res){
   // res.render("players-show", {
   //   player: playerOutput
   // });
-  Player.findOne({name: req.params.name}).then(function(playerFromDb){
+  Player.findOne({_id: req.params.id}).then(function(playerFromDb){
     res.render("players-show", {
       player: playerFromDb
     });
