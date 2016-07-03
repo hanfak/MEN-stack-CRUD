@@ -34,6 +34,17 @@ app.get("/players", function(req, res){
   });
 });
 
+app.get("/players/new", function(req, res){
+  res.render("players-new");
+});
+
+app.post("/players", function(req, res){
+  // res.json(req.body);
+  Player.create(req.body.player).then(function(playerFromDb){
+    res.redirect("/players/" + playerFromDb.id);
+  });
+});
+
 app.get("/players/:id", function(req, res){
   Player.findOne({_id: req.params.id}).then(function(playerFromDb){
     res.render("players-show", {
