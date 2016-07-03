@@ -23,7 +23,8 @@ app.engine(".hbs", hbs({
 }));
 
 app.get("/", function(req, res){
-  res.render("app-welcome");
+  // res.render("app-welcome");
+  res.redirect('/players');
 });
 
 app.get("/players", function(req, res){
@@ -39,7 +40,6 @@ app.get("/players/new", function(req, res){
 });
 
 app.post("/players", function(req, res){
-  // res.json(req.body);
   Player.create(req.body.player).then(function(playerFromDb){
     res.redirect("/players/" + playerFromDb.id);
   });
