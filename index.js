@@ -28,13 +28,27 @@ app.get("/players", function(req, res){
   });
 });
 
-app.get("/players/:name", function(req, res){
-  var data = {
-    name: req.params.name,
-    goals: 10
-  };
+// app.get("/players/:id", function(req, res){
+//   var data = {
+//     id: req.params.id,
+//     name: 'same name',
+//     goals: 10
+//   };
+//   res.render("players-show", {
+//     player: data
+//   });
+// });
+
+app.get("/players/:id", function(req, res){
+  var desiredName = req.params.id;
+  var playerOutput;
+  db.players.forEach(function(player){
+    if(desiredName === player.id){
+      playerOutput = player;
+    }
+  });
   res.render("players-show", {
-    player: data
+    player: playerOutput
   });
 });
 

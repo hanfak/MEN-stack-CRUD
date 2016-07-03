@@ -2,11 +2,12 @@
 
 {{#each players as |player index|}}
 <h3>
-  <a href="/players/{{player.name}}">{{player.name}}</a> has {{player.goals}}
-  {{#eq player.goals 1}}
-    goal
-  {{else}}
+  id: {{player.id}}
+  <a href="/players/{{player.id}}">{{player.name}}</a> has scored
+  {{#gt player.goals 0}}
     goals
-  {{/eq}}
+  {{else}}
+    no goals
+  {{/gt}}
 </h3>
 {{/each}}

@@ -1,13 +1,16 @@
 [
 {
+  "id": "1",
   "name": "Steve",
   "goals": 13
 },
 {
+  "id": "2",
   "name": "Barry",
-  "goals": 1
+  "goals": 0
 },
 {
+  "id": "3",
   "name": "Pele",
   "goals": 4
 }
