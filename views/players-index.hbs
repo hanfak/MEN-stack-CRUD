@@ -1,3 +1,6 @@
+<form action="/players/new">
+  <input type="submit" value="Add a player">
+</form>
 <h2>{{players.length}} players</h2>
 
 {{#each players as |player index|}}
@@ -8,7 +11,9 @@
   {{else}}
     no goals
   {{/gt}}
+
+  <form action="/players/{{player.id}}/edit">
+      <input type="submit" value="update this player">
+  </form>
 </h3>
 {{/each}}
-
-<a href="/players/new">Add a player</a>

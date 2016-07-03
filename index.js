@@ -5,7 +5,6 @@ var mongoose  = require("./db/connection");
 var helpers = require('handlebars-helpers');
 var parser  = require("body-parser");
 
-
 var comparison = helpers.comparison();
 var Player = mongoose.model("Player");
 var app = express();
@@ -28,7 +27,8 @@ app.get("/", function(req, res){
 });
 
 app.get("/players", function(req, res){
-  Player.find({}).then(function(playersFromDb){
+  Player.find({})
+  .then(function(playersFromDb){
     res.render("players-index", {
       players: playersFromDb
     });
@@ -40,16 +40,33 @@ app.get("/players/new", function(req, res){
 });
 
 app.post("/players", function(req, res){
-  Player.create(req.body.player).then(function(playerFromDb){
-    res.redirect("/players/" + playerFromDb.id);
+  Player.create(req.body.player)
+  .then(function(newPlayerFromDb){
+    res.redirect("/players/" + newPlayerFromDb.id);
   });
 });
 
 app.get("/players/:id", function(req, res){
-  Player.findOne({_id: req.params.id}).then(function(playerFromDb){
+  Player.findOne({_id: req.params.id})
+  .then(function(playerFromDb){
     res.render("players-show", {
       player: playerFromDb
     });
+  });
+});
+
+app.get("/players/:id/edit", function(req, res){
+  Player.findOne({_id: req.params.id}).then(function(playerFromDb){
+    res.render("players-edit", {
+      player: playerFromDb
+    });
+  });
+});
+
+app.post("/players/:id", function(req, res){
+  Player.findOneAndUpdate({_id: req.params.id}, req.body.player, {new: true})
+  .then(function(updatedPlayerFromDb){
+   res.redirect("/players/" + updatedPlayerFromDb.id);
   });
 });
 

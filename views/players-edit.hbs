@@ -1,0 +1,9 @@
+{{#unless player}}
+  <h2>That player couldn't be found!</h2>
+{{else}}
+  <form action="/players/{{player.id}}" method="post">
+    <input type="text" name="player[name]" value="{{player.name}}" />
+    <input type="number" name="player[goals]" value="{{player.goals}}"/>
+    <button type="submit">Submit</button>
+  </form>
+{{/unless}}

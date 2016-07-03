@@ -12,3 +12,8 @@
 {{else}}
   <h2>That player couldn't be found!</h2>
 {{/if}}
+
+
+<form action="/players/{{player.id}}/edit">
+    <input type="submit" value="update this player">
+</form>
