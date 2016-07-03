@@ -1,4 +1,4 @@
-{{#if candidate}}
+{{#if player}}
   <h2>
     {{player.name}} has scored {{player.goals}}
     {{#eq player.goals 1}}
@@ -10,5 +10,5 @@
 
   {{player.id}}
 {{else}}
-<h2>That player couldn't be found!</h2>
+  <h2>That player couldn't be found!</h2>
 {{/if}}
