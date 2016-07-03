@@ -1,19 +1,30 @@
 <form action="/players/new">
   <input type="submit" value="Add a player">
 </form>
+
 <h2>{{players.length}} players</h2>
 
 {{#each players as |player index|}}
-<h3>
-  <a href="/players/{{player.id}}">{{player.name}}</a> has scored
-  {{#gt player.goals 0}}
-    goals
-  {{else}}
-    no goals
-  {{/gt}}
-
-  <form action="/players/{{player.id}}/edit">
-      <input type="submit" value="update this player">
-  </form>
-</h3>
+  <table>
+    <tr>
+      <td>
+        <a href="/players/{{player.id}}">{{player.name}}</a> has scored
+        {{#gt player.goals 0}}
+        goals
+        {{else}}
+        no goals
+        {{/gt}}
+      </td>
+      <td>
+        <form action="/players/{{player.id}}/edit">
+          <input type="submit" value="update this player">
+        </form>
+      </td>
+      <td>
+        <form method="post" action="/players/{{player.id}}/delete">
+          <button type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+  </table>
 {{/each}}

@@ -70,6 +70,13 @@ app.post("/players/:id", function(req, res){
   });
 });
 
+app.post("/players/:id/delete", function(req, res){
+  Player.findOneAndRemove({_id: req.params.id})
+  .then(function(){
+    res.redirect("/");
+  });
+});
+
 app.listen(app.get("port"), function(){
   console.log('server is working');
 });
