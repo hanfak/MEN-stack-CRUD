@@ -4,10 +4,11 @@ var hbs = require("express-handlebars");
 var db  = require("./db/connection");
 var helpers = require('handlebars-helpers');
 
-
 var comparison = helpers.comparison();
 
 var app = express();
+
+app.set("port", process.env.PORT || 3001);
 
 app.use("/assets", express.static("public"));
 app.set("view engine", "hbs");
@@ -28,17 +29,6 @@ app.get("/players", function(req, res){
   });
 });
 
-// app.get("/players/:id", function(req, res){
-//   var data = {
-//     id: req.params.id,
-//     name: 'same name',
-//     goals: 10
-//   };
-//   res.render("players-show", {
-//     player: data
-//   });
-// });
-
 app.get("/players/:id", function(req, res){
   var desiredName = req.params.id;
   var playerOutput;
@@ -52,6 +42,6 @@ app.get("/players/:id", function(req, res){
   });
 });
 
-app.listen(3001, function(){
+app.listen(app.get("port"), function(){
   console.log('server is working');
 });
