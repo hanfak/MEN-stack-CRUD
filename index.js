@@ -1,11 +1,11 @@
 var express = require("express");
 // var exampleText = require("./exampleText.js");
 var hbs = require("express-handlebars");
-var db  = require("./db/connection");
+var mongoose  = require("./db/connection");
 var helpers = require('handlebars-helpers');
 
 var comparison = helpers.comparison();
-
+var Player = mongoose.model("Player");
 var app = express();
 
 app.set("port", process.env.PORT || 3001);
@@ -24,8 +24,13 @@ app.get("/", function(req, res){
 });
 
 app.get("/players", function(req, res){
-  res.render("players-index", {
-     players: db.players,
+  // res.render("players-index", {
+  //    players: db.players,
+  // });
+  Player.find({}).then(function(playersFromDb){
+    res.render("players-index", {
+      players: playersFromDb
+    });
   });
 });
 
