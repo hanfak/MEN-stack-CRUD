@@ -1,21 +1,13 @@
 {
-  "name": "whenpresident",
+  "name": "players",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter spec"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ga-wdi-exercises/whenpresident.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ga-wdi-exercises/whenpresident/issues"
-  },
-  "homepage": "https://github.com/ga-wdi-exercises/whenpresident#readme",
   "dependencies": {
     "chai": "^3.5.0",
     "express": "^4.14.0",
