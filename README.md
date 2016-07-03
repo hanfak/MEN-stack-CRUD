@@ -8,7 +8,7 @@ clone repo
 
 ```
 git clone https://github.com/hanfak/MEN-stack-CRUD.git
-MEN-stack-CRUD
+cd MEN-stack-CRUD
 ```
 
 ```npm install```
