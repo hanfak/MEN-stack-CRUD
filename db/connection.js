@@ -1,4 +1,5 @@
 var mongoose  = require("mongoose");
+var seedData = require("./seeds.json");
 
 var PlayersSchema = new mongoose.Schema(
   {
@@ -7,11 +8,7 @@ var PlayersSchema = new mongoose.Schema(
   }
 );
 
-mongoose.model("Players", PlayersSchema);
+mongoose.model("Player", PlayersSchema);
 mongoose.connect("mongodb://localhost/players");
 
-
-var seedData = require("./seeds.json");
-module.exports = {
-  players: seedData
-};
+module.exports = mongoose; 
