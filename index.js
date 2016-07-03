@@ -32,16 +32,6 @@ app.get("/players", function(req, res){
 });
 
 app.get("/players/:id", function(req, res){
-  // var desiredName = req.params.name;
-  // var playerOutput;
-  // db.players.forEach(function(player){
-  //   if(desiredName === player.name){
-  //     playerOutput = player;
-  //   }
-  // });
-  // res.render("players-show", {
-  //   player: playerOutput
-  // });
   Player.findOne({_id: req.params.id}).then(function(playerFromDb){
     res.render("players-show", {
       player: playerFromDb
