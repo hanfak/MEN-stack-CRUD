@@ -3,6 +3,8 @@ var express = require("express");
 var hbs = require("express-handlebars");
 var mongoose  = require("./db/connection");
 var helpers = require('handlebars-helpers');
+var parser  = require("body-parser");
+
 
 var comparison = helpers.comparison();
 var Player = mongoose.model("Player");
@@ -10,6 +12,7 @@ var app = express();
 
 app.set("port", process.env.PORT || 3001);
 
+app.use(parser.urlencoded({extended: true}));
 app.use("/assets", express.static("public"));
 app.set("view engine", "hbs");
 app.engine(".hbs", hbs({
